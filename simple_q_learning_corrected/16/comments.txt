@@ -1,0 +1,4 @@
+## Resulting Behaviour
+
+could not improve in last iterations, fixed some errors in code and grew the number of states,
+giving it noe 2.000.000 iterations to converge

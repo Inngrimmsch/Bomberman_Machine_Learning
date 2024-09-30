@@ -1,0 +1,41 @@
+## General Information
+
+alpha 0.1 exp decay by 1/e
+random move 0.4 exp decay by 1/e
+gamma 0.99
+use state for training 0.7
+game length 50
+map coin heaven
+500.000 games played
+no opponents
+
+## Rewards used
+
+e.CRATE_DESTROYED: 0,
+e.COIN_COLLECTED: 8,
+e.KILLED_OPPONENT: 0,
+e.GOT_KILLED: -10,
+e.COIN_FOUND: 0,
+e.KILLED_SELF: -10,
+e.MOVED_LEFT: 0,
+e.MOVED_RIGHT: 0,
+e.MOVED_UP: 0,
+e.MOVED_DOWN: 0,
+e.WAITED: -3,
+e.INVALID_ACTION: -5,
+e.SURVIVED_ROUND: 0,
+e.BOMB_DROPPED: -8,
+e.MOVED_AWAY_FROM_DANGER: 4,
+e.MOVED_TO_COINS: 3,
+
+## Resulting Behaviour
+
+model moves towards coins but does not pick them up efficiently
+if coins are next to it it takes them in quick succession
+kills itself regularly
+
+inefficiency grew and suicide issue as well
+
+-> lay focus on danger avoidance since this issue seems to grow
+-> train from "ground up" with new coin feature since last model already had an issue with
+bombs and with 0-q entries

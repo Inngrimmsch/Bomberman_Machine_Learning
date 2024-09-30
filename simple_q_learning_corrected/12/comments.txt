@@ -1,0 +1,40 @@
+## General Information
+
+alpha 0.3 exp decay by 1/e^2.5
+random move 0.8 exp decay by 1/e^2.5
+gamma 0.99
+use state for training 0.7
+game length 50
+map coin heaven
+500.000 games played
+no opponents
+
+## Rewards used
+
+e.CRATE_DESTROYED: 0,
+e.COIN_COLLECTED: 6,
+e.KILLED_OPPONENT: 0,
+e.GOT_KILLED: -10,
+e.COIN_FOUND: 0,
+e.KILLED_SELF: -10,
+e.MOVED_LEFT: 1,
+e.MOVED_RIGHT: 1,
+e.MOVED_UP: 1,
+e.MOVED_DOWN: 1,
+e.WAITED: -3,
+e.INVALID_ACTION: -5,
+e.SURVIVED_ROUND: 0,
+e.BOMB_DROPPED: -8,
+e.MOVED_AWAY_FROM_DANGER: 1,
+e.MOVED_TO_COINS: 2,
+
+## Resulting Behaviour
+
+model moves towards coins but does not pick them up efficiently
+kills itself rarely
+waits a lot
+
+-> train next iteration based on this one
+-> punish waiting to make him choose a move
+-> take away the coin-motion-part in act()
+-> make random prob and alpha small for next step

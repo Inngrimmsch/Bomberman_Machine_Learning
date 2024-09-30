@@ -1,0 +1,39 @@
+## General Information
+
+alpha 0.1 exp decay by 1/e
+random move 0.5 exp decay by 1/e^3
+gamma 0.99
+use state for training 0.6
+game length 50
+map coin heaven
+1.000.000 games played
+no opponents
+
+## Rewards used
+
+e.CRATE_DESTROYED: 0,
+e.COIN_COLLECTED: 5,
+e.KILLED_OPPONENT: 0,
+e.GOT_KILLED: -8,
+e.COIN_FOUND: 0,
+e.KILLED_SELF: -8,
+e.MOVED_LEFT: 1,
+e.MOVED_RIGHT: 1,
+e.MOVED_UP: 1,
+e.MOVED_DOWN: 1,
+e.WAITED: -1,
+e.INVALID_ACTION: -3,
+e.SURVIVED_ROUND: 0,
+e.BOMB_DROPPED: -3,
+e.MOVED_AWAY_FROM_DANGER: 3,
+e.MOVED_TO_COINS: 2,
+
+## Resulting Behaviour
+
+model seems to 'search' for coins but is not always able to actually find them
+kills itself from time to time but more often than not realizes it is supposed to avoid this
+model spends many moves 'waiting'
+
+-> increase punishment for placing bomb
+-> increase punishment for waiting
+-> increase reward for coin searching

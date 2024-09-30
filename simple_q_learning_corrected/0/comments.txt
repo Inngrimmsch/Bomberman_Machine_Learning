@@ -1,0 +1,34 @@
+## General Information
+
+alpha 0.1 exp decay by 1/e
+random move 0.5 exp decay by 1/e^3
+gamma 0.99
+use state for training 0.85
+game length 50
+map coin heaven
+1.000.000 games played
+no opponents
+
+## Rewards used
+
+e.CRATE_DESTROYED: 0,
+e.COIN_COLLECTED: 10,
+e.KILLED_OPPONENT: 0,
+e.GOT_KILLED: -15,
+e.COIN_FOUND: 0,
+e.KILLED_SELF: -15,
+e.MOVED_LEFT: 2,
+e.MOVED_RIGHT: 2,
+e.MOVED_UP: 2,
+e.MOVED_DOWN: 2,
+e.WAITED: -3,
+e.INVALID_ACTION: -5,
+e.SURVIVED_ROUND: 0,
+e.BOMB_DROPPED: -3,
+e.MOVED_AWAY_FROM_DANGER: 3,
+e.MOVED_TO_COINS: 3,
+
+## Resulting Behaviour
+
+model does not kill itself but it does not
+understand what moves besides making a random legal move are good
