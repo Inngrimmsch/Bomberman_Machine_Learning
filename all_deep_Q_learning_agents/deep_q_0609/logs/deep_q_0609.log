@@ -1,0 +1,31 @@
+2024-09-25 16:00:39,756 [deep_q_0609_code] INFO: Training model.
+2024-09-25 16:00:40,210 [deep_q_0609_code] DEBUG: Querying model for action.
+2024-09-25 16:00:40,240 [deep_q_0609_code] DEBUG: Encountered game event(s) 'BOMB_DROPPED', 'COIN_COLLECTED' in step 1
+2024-09-25 16:00:40,240 [deep_q_0609_code] INFO: Awarded 0.9093653765389909 for events BOMB_DROPPED, COIN_COLLECTED
+2024-09-25 16:00:40,243 [deep_q_0609_code] DEBUG: Querying model for action.
+2024-09-25 16:00:40,244 [deep_q_0609_code] DEBUG: Encountered game event(s) 'INVALID_ACTION' in step 2
+2024-09-25 16:00:40,244 [deep_q_0609_code] INFO: Awarded -3 for events INVALID_ACTION
+2024-09-25 16:00:40,345 [deep_q_0609_code] DEBUG: Querying model for action.
+2024-09-25 16:00:40,346 [deep_q_0609_code] DEBUG: Encountered game event(s) 'INVALID_ACTION' in step 3
+2024-09-25 16:00:40,346 [deep_q_0609_code] INFO: Awarded -3 for events INVALID_ACTION
+2024-09-25 16:00:40,443 [deep_q_0609_code] DEBUG: Querying model for action.
+2024-09-25 16:00:40,444 [deep_q_0609_code] DEBUG: Encountered game event(s) 'INVALID_ACTION' in step 4
+2024-09-25 16:00:40,444 [deep_q_0609_code] INFO: Awarded -3 for events INVALID_ACTION
+2024-09-25 16:00:40,545 [deep_q_0609_code] DEBUG: Querying model for action.
+2024-09-25 16:00:40,545 [deep_q_0609_code] DEBUG: Encountered event(s) 'MOVED_LEFT', 'BOMB_EXPLODED', 'KILLED_SELF', 'GOT_KILLED' in final step
+2024-09-25 16:00:40,545 [deep_q_0609_code] INFO: Awarded -15 for events MOVED_LEFT, BOMB_EXPLODED, KILLED_SELF, GOT_KILLED
+2024-09-25 16:00:40,567 [deep_q_0609_wrapper] ERROR: Trying to backward through the graph a second time (or directly access saved tensors after they have already been freed). Saved intermediate values of the graph are freed when you call .backward() or autograd.grad(). Specify retain_graph=True if you need to backward through the graph a second time or if you need to access saved tensors after calling backward.
+Traceback (most recent call last):
+  File "/Users/remibousmanne/bomberman_rl/agents.py", line 248, in process_event
+    event_result = getattr(module, event_name)(self.fake_self, *event_args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/remibousmanne/bomberman_rl/agent_code/deep_q_0609/train.py", line 118, in end_of_round
+    squared_loss_function.backward()
+  File "/Users/remibousmanne/miniconda3/envs/ml_homework/lib/python3.12/site-packages/torch/_tensor.py", line 521, in backward
+    torch.autograd.backward(
+  File "/Users/remibousmanne/miniconda3/envs/ml_homework/lib/python3.12/site-packages/torch/autograd/__init__.py", line 289, in backward
+    _engine_run_backward(
+  File "/Users/remibousmanne/miniconda3/envs/ml_homework/lib/python3.12/site-packages/torch/autograd/graph.py", line 769, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Trying to backward through the graph a second time (or directly access saved tensors after they have already been freed). Saved intermediate values of the graph are freed when you call .backward() or autograd.grad(). Specify retain_graph=True if you need to backward through the graph a second time or if you need to access saved tensors after calling backward.
